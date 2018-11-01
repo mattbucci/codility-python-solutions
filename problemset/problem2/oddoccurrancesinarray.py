@@ -1,16 +1,13 @@
 
 def solution(A):
-    A = sorted(A)
-    number_to_pair = None
+    sortedA = sorted(A)
+    sum = 0
     
-    for number in A:
-        if number_to_pair is None:
-            number_to_pair = number
-            continue
-
-        if number is not number_to_pair:
-            return number_to_pair
+    for i, number in enumerate(sortedA):
+        index_is_odd = i % 2 is 1
+        if index_is_odd:
+            sum += number
         else:
-            number_to_pair = None
+            sum -= number
 
-    return number_to_pair
+    return abs(sum)
